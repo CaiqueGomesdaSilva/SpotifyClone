@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import  Spotify from 'spotify-web-api-js';
-import { IUsuario } from '../interfaces/iusuario';
+import { IUsuario } from '../interfaces/iUsuario';
 import { SpotifyUserParaUsuario } from '../Common/spotifyHelper';
 
 @Injectable({

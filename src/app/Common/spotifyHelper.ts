@@ -1,4 +1,4 @@
-import { IUsuario } from "../interfaces/iusuario"
+import { IUsuario } from "../interfaces/iUsuario"
 
 export function SpotifyUserParaUsuario(user: SpotifyApi.CurrentUsersProfileResponse): IUsuario{
     return {
