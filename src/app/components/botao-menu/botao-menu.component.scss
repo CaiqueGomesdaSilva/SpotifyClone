@@ -1,4 +1,29 @@
 :host{
     display: block;
     width: 100%;
+
+    button{
+        width: 100%;
+        border: none;
+        padding: 10px 0px 10px 20px;
+        background-color: transparent;
+        text-align: left;
+        font-size: .8rem;
+        cursor: pointer;
+
+        span{
+            display: inline-block;
+            vertical-align: middle;
+            width: 150px;
+            white-space: nowrap;
+            margin-left: 15px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    button:hover{
+        transition: 0.5s;
+        font-weight: 600;
+    }
 }

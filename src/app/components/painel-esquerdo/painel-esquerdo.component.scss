@@ -29,10 +29,13 @@ $m-entre-menus: 10px;
 
         .menu-container{
             width: 100%;
-
+            background-color: #222;
+            padding: 8px;
+            border-radius: 8px;
             &.opcoes{
                 min-height: $h-menu-opcoes;
                 flex-direction: column;
+                
                 *{
                     margin-bottom: $m-entre-menus;
                 }
