@@ -4,15 +4,42 @@
     </div>
 
     <div class="menu-container flex opcoes">
-        <app-botao-menu [descricao]="'Home'">
+        <app-botao-menu 
+        [descricao]="'Home'"
+        [selecionado]="MenuSelecionado === 'Home'"
+        (click)="botaoClick('Home')">
             <fa-icon [icon]="homeIcone"></fa-icon>
         </app-botao-menu>
-        <app-botao-menu [descricao]="'Pesquisar'">
+
+        <app-botao-menu 
+        [descricao]="'Pesquisar'"
+        [selecionado]="MenuSelecionado === 'Pesquisar'"
+        (click)="botaoClick('Pesquisar')">
             <fa-icon [icon]="pesquisaIcone"></fa-icon>
         </app-botao-menu>
-        <app-botao-menu [descricao]="'Artistas'">
+
+        <app-botao-menu 
+        [descricao]="'Artistas'"
+        [selecionado]="MenuSelecionado === 'Artistas'"
+        (click)="botaoClick('Artistas')">
             <fa-icon [icon]="artistaIcone"></fa-icon>
         </app-botao-menu>
+    </div>
+
+    <div class="menu-container flex">
+        <span class="playlist-titulo">
+            PLAYLISTS
+        </span>
+        <div class="playlist-scroll">
+            <app-botao-menu 
+            *ngFor="let playlist of playlists"
+            [descricao]="playlist.nome"
+            [selecionado]="MenuSelecionado === playlist.id"
+            (click)="botaoClick(playlist.id)"
+            >
+                <fa-icon [icon]="playlistIcon"></fa-icon>
+            </app-botao-menu>
+        </div>
     </div>
 </div>
 <div class="usuario-info">

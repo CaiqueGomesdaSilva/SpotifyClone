@@ -1,16 +1,20 @@
+@import '_variables';
+
 :host{
     display: block;
     width: 100%;
 
     button{
         width: 100%;
-        border: none;
+        border: 0;
         padding: 10px 0px 10px 20px;
         background-color: transparent;
+        border-radius: 5px;
         text-align: left;
+        font-weight: 600;
         font-size: .8rem;
         cursor: pointer;
-
+        
         span{
             display: inline-block;
             vertical-align: middle;
@@ -20,10 +24,11 @@
             overflow: hidden;
             text-overflow: ellipsis;
         }
-    }
 
-    button:hover{
-        transition: 0.5s;
-        font-weight: 600;
+        &.selecionado{
+            background-color: $button-green;
+            color: white;
+        }
     }
+    
 }
