@@ -20,3 +20,27 @@ html, body {
         align-items: center;
     }
 }
+
+.titulo{
+    color: $button-green;
+    display: block;
+    font-weight: 700;
+
+    &-bg{
+        @extend .titulo;
+        font-size: 2.2rem;
+    }
+
+    &-md{
+        @extend .titulo;
+        font-size: 1.4rem;
+    }
+}
+
+.mt-4{
+    @for $i from 1 to 10 {
+        &-#{ $i } {
+            margin-top: #{ $i }vh;
+        }
+    }
+}
