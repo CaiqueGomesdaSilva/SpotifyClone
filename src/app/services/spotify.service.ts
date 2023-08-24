@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import  Spotify from 'spotify-web-api-js';
 import { IUsuario } from '../interfaces/iUsuario';
-import { SpotifyPlaylistParaPlaylist, SpotifyUserParaUsuario } from '../Common/spotifyHelper';
+import { SpotifyArtistaParaArtista, SpotifyPlaylistParaPlaylist, SpotifyTrackParaMusica, SpotifyUserParaUsuario } from '../Common/spotifyHelper';
 import { iPlaylist } from '../interfaces/iPlaylist';
 import { Router } from '@angular/router';
+import { iArtista } from '../interfaces/iArtista';
+import { iMusica } from '../interfaces/iMusica';
 
 @Injectable({
   providedIn: 'root'
@@ -72,6 +74,21 @@ export class SpotifyService {
     const playlists = await this.spotifyApi.getUserPlaylists(this.usuario.id, {offset, limit});
     return playlists.items.map(SpotifyPlaylistParaPlaylist)
     
+  }
+
+  async buscarTopArtistas(limit = 10): Promise<iArtista[]>{
+    const artistas = await this.spotifyApi.getMyTopArtists({limit});
+    return artistas.items.map(SpotifyArtistaParaArtista)
+  }
+
+  async buscarMusicas(offset = 0, limit = 50): Promise<iMusica[]>{
+    const musicas = await this.spotifyApi.getMySavedTracks({offset, limit});
+    return musicas.items.map(x => SpotifyTrackParaMusica(x.track));
+  }
+
+  async executarMusica(musicaId: string){
+    await this.spotifyApi.queue(musicaId);
+    await this.spotifyApi.skipToNext();
   }
 
   logout(){

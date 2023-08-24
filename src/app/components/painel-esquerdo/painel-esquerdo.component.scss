@@ -33,7 +33,6 @@ $h-desconsiderar: calc($h-spotify-logo + $h-menu-opcoes + $h-footer-user);
 
         .menu-container{
             width: 100%;
-         
             &.flex{
                 flex-direction: column;
                 justify-content: flex-start;

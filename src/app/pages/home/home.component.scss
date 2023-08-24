@@ -1,6 +1,9 @@
+@import 'table.scss';
+
 :host{
 display: flex;
 justify-content: space-between;
+color: $branco;
 
     .minhas-musicas{
         padding: 0px 50px;
@@ -12,5 +15,9 @@ justify-content: space-between;
 
     .painel-direito{
         height: 100%;
+    }
+
+    .d-block{
+        display: block;
     }
 }
